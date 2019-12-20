@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-lg-12">
-        <h1 class="page-header">Welcome to Soi 5 Used Cars</h1>
+        <h1 class="page-header">Welcome to Soi 5 Used Cars 008 2</h1>
     </div>
 </div>
 <!-- ... Your content goes here ... -->
@@ -10,20 +10,30 @@
             <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
             <li data-target="#myCarousel" data-slide-to="1"></li>
             <li data-target="#myCarousel" data-slide-to="2"></li>
+            <li data-target="#myCarousel" data-slide-to="3"></li>
+            <li data-target="#myCarousel" data-slide-to="4"></li>
         </ol>
 
         <!-- Wrapper for slides -->
         <div class="carousel-inner">
             <div class="item active">
-            <img src="https://images.pexels.com/photos/120049/pexels-photo-120049.jpeg?cs=srgb&dl=white-mercedes-benz-cars-120049.jpg&fm=jpg" alt="" style="width:100%">
+            <img src="https://www.autodeft.com/_uploads/images/Ford%20Mustang%20EV%20by%20Charge%20Cars_01.jpg" alt="" style="width:100%">
             </div>
 
             <div class="item">
-            <img src="https://images.pexels.com/photos/337909/pexels-photo-337909.jpeg?cs=srgb&dl=auto-automobiles-automotive-337909.jpg&fm=jpg" alt="" style="width:100%">
+            <img src="http://thai.luxurysocietyasia.com/wp-content/uploads/2017/01/wmotors_img_1446438890.jpg" alt="" style="width:100%">
             </div>
 
             <div class="item">
-            <img src="https://images.pexels.com/photos/1149137/pexels-photo-1149137.jpeg?cs=srgb&dl=4k-wallpaper-automobile-automotive-1149137.jpg&fm=jpg" alt="" style="width:100%">
+            <img src="https://www.autoinfo.co.th/wp-content/uploads/2016/07/TESLA-MODEL-X-1.jpg" alt="" style="width:100%">
+            </div>
+
+            <div class="item">
+            <img src="https://media.wired.com/photos/5d72a4682f4c730008bbaad8/191:100/w_2400,h_1256,c_limit/Transpo_RU_P19_0578_a3_rgb.jpg" alt="" style="width:100%">
+            </div>
+
+            <div class="item">
+            <img src="https://media.wired.com/photos/5d09594a62bcb0c9752779d9/master/pass/Transpo_G70_TA-518126.jpg" alt="" style="width:100%">
             </div>
         </div>
 

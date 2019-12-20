@@ -1,5 +1,6 @@
 <?php
     session_start();
+    include("connect.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -10,7 +11,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Soi5 Used Cars</title>
+    <title>Soi5 Used Cars 008 2</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -57,7 +58,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="navbar-header">
-            <a class="navbar-brand" href="#">Soi 5 Used Cars</a>
+            <a class="navbar-brand" href="index.php">Soi 5 Used Cars 008 2</a>
         </div>
 
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -69,36 +70,39 @@
 
         <!-- Top Navigation: Left Menu -->
         <ul class="nav navbar-nav navbar-left navbar-top-links">
-            <li><a href="login.php"><i class="fa fa-home fa-fw"></i> หน้าหลัก</a></li>
+            <li><a href="index.php"><i class="fa fa-home fa-fw"></i> หน้าหลัก</a></li>
         </ul>
 
         <!-- Top Navigation: Right Menu -->
         <ul class="nav navbar-right navbar-top-links">
-            <li>
-                <a href="">
-                    <i class="fa fa-lock fa-fw"></i> เข้าสู่ระบบ
-                </a>
-            </li>
-            
-            <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                    <i class="fa fa-user fa-fw"></i> Phakpoom Ittirattanakomon <b class="caret"></b>
-                </a>
-                <ul class="dropdown-menu dropdown-user">
-                    <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+        <?php 
+                    if(isset($_SESSION['id'])){
+                ?>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"role="button"aria-haspopup="true"aria-expanded="false">
+                        <i class="glyphicon glyphicon-user"></i>
+                            ยินดีต้อนรับ <?php echo $_SESSION ['name']?> <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">โปรไฟล์</a></li>
+                            <li><a href="#">รายการสั่งซื้อ</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="logout.php">ออกจากระบบ</a></li>
+                        </ul>
                     </li>
-                    <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                    <li>
+                        <a href="#">
+                            <i class="glyphicon glyphicon-shopping-cart"></i>(0)
+                        </a>
                     </li>
-                    <li class="divider"></li>
-                    <li><a href="#"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="fa fa-shopping-cart fa-fa"></i> (0)
-                </a>
-            </li>
+                    <?php 
+                    }
+                    else{
+                    ?>
+                    <li><a href="login.php">เข้าสู่ระบบ</a></li>
+                    <?php 
+                    }
+                    ?>
         </ul>
 
         <!-- Sidebar -->
@@ -106,19 +110,10 @@
             <div class="sidebar-nav navbar-collapse">
                 <ul class="nav" id="side-menu">
                     <li class="text-center">
-                        <a href="#s">รถยนต์ของเรา</a>
+                        <a href="#">รถยนต์ของเรา</a>
                     </li>
                     <li>
-                        <a href="#" class="active"><i class="fa fa-car fa-fw"></i> รถทุกประเภท</a>
-                    </li>
-                    <li>
-                        <a href="#" class="active"><i class="fa fa-car fa-fw"></i> รถเก๋ง</a>
-                    </li>
-                    <li>
-                        <a href="#" class="active"><i class="fa fa-truck fa-fw"></i> รถกระบะ</a>
-                    </li>
-                    <li>
-                        <a href="#" class="active"><i class="fa fa-truck fa-fw"></i> รถตู้</a>
+                        <a href="index.php?menu=all" class="active"><i class="fa fa-car fa-fw"></i>รถทุกประเภท</a>
                     </li>
                 </ul>
             </div>
@@ -126,9 +121,36 @@
     </nav>
     <!-- Page Content -->
     <div id="page-wrapper">
-        <div class="container-fluid">
-            <?php
-                include("main.php");
+    <div class="container-fluid">
+        <?php
+            if(isset($_GET["menu"])){
+                $menu=$_GET["menu"];
+            }
+            else{
+                $menu="";
+            }
+            switch($menu){
+                case "all":{
+                    $page="showall.php";
+                    break;
+                }
+                case "car":{
+                    $page="ShowCar.php";
+                    break;
+                }
+                case "edit":{
+                    $page="edit.php";
+                    break;
+                }
+                case "upload":{
+                    $page="upload.php";
+                    break;
+                }
+                default:{
+                    $page="main.php";
+                }
+            }
+                include($page);
             ?>           
 
         </div>
